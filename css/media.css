@@ -1,0 +1,326 @@
+@media (max-width: 1199px) {
+
+    :root {
+        --radius: 0em;
+        /* или 1.5em, подбери визуально */
+    }
+
+    .grid-layout {
+        grid-template-columns: 1fr;
+        /* один столбец */
+    }
+
+    .grid-item.wide {
+        grid-column: span 1;
+        /* отключаем растяжение */
+    }
+
+    .grid-item.tall {
+        grid-row: span 1;
+        /* отключаем растяжение */
+    }
+
+    .spacer-mobile-only {
+        display: block;
+        height: 5vh;
+        /* можно заменить на px, em, % по желанию */
+    }
+
+    /* Позиционирую ячейки грида в адаптив */
+    .grid-layout {
+        grid-template-areas:
+            "item2"
+            "item3"
+            "item5"
+            "item6"
+            "item4"
+            "item7"
+            "item8"
+            "item12"
+            "item11";
+    }
+
+    /* те же grid-area назначения */
+    .item-2 {
+        grid-area: item2;
+    }
+
+    .item-3 {
+        grid-area: item3;
+    }
+
+    .item-4 {
+        grid-area: item4;
+    }
+
+    .item-5 {
+        grid-area: item5;
+    }
+
+    .item-6 {
+        grid-area: item6;
+    }
+
+    .item-7 {
+        grid-area: item7;
+    }
+
+    .item-8 {
+        grid-area: item8;
+    }
+
+    .item-9 {
+        display: none;
+    }
+
+    .item-10 {
+        display: none;
+    }
+
+    .item-11 {
+        grid-area: item11;
+    }
+
+    .item-12 {
+        grid-area: item12;
+    }
+
+    .item-13,
+    .item-14,
+    .item-15 {
+        display: none;
+    }
+
+    /* Позиционирую и выравниваю цитаты */
+    .speech-box {
+        transform: skew(0deg);
+    }
+
+    .speech-columns {
+        grid-template-columns: 1fr;
+        transform: skew(0);
+    }
+
+    .speech-box-violet {
+        transform: skew(0) translate(0);
+        margin-bottom: 0em;
+        padding: 4% 4%;
+    }
+
+    .speech-box-violet p {
+        max-width: 100%;
+        transform: skew(0);
+    }
+
+    .bubble-box.gelb {
+        margin-top: 0em;
+        margin-left: 0em;
+        padding: 3%;
+        transform: skew(0) translate(0);
+    }
+
+    .bubble-box.gelb p {
+        transform: skew(0);
+        margin: 0;
+    }
+
+    .bubble-box.coral {
+        padding: 3%;
+        transform: skew(0) translate(0);
+        margin: 0;
+    }
+
+    .bubble-box.coral p {
+        max-width: 100%;
+        transform: skew(0);
+        margin-bottom: 0;
+    }
+
+    .bubble-box.green {
+        padding: 3%;
+        transform: skew(0) translate(0);
+    }
+
+    .bubble-box.green p {
+        transform: skew(0);
+        padding: 0%;
+    }
+
+    .speech-box-violet11 {
+        max-width: 100%;
+        padding: 3%;
+        transform: skew(0) translate(0);
+    }
+
+    .speech-box-violet11 p {
+        max-width: 100%;
+    }
+
+    .speech-box-green {
+        max-width: 100%;
+        padding: 3%;
+        transform: skew(0);
+        bottom: 0;
+        right: 0;
+
+    }
+
+    .speech-box-green p {
+        transform: skew(0);
+        max-width: 100%;
+    }
+
+    .speech-box-green .date {
+        margin-bottom: 0;
+    }
+
+    /* ================================================== */
+    /* У цитат меняю положение псевдоэлементов */
+    .img-wrapper.foto-main::after {
+        content: url('/img/decor/Group28.webp');
+        position: absolute;
+        top: -12%;
+        left: 15%;
+        z-index: 2;
+    }
+
+    .speech-box::before {
+        content: url('/img/decor/Vector22.webp');
+        position: absolute;
+        top: -12%;
+        left: 70%;
+    }
+
+    .speech-box::after {
+        display: none;
+    }
+
+    .speech-box-violet::before {
+        content: url('/img/decor/Vector27.webp');
+        position: absolute;
+        top: 0%;
+        right: 0%;
+        z-index: -1;
+        transform: scale(1) translateY(-80%);
+    }
+
+    .speech-box-violet::after {
+        content: url('/img/decor/Vector21.webp');
+        position: absolute;
+        top: -10%;
+        left: 10%;
+        z-index: -1;
+    }
+
+    .bubble-box.gelb::before {
+        content: url('/img/decor/Vector23.webp');
+        top: -30%;
+        left: 10%;
+    }
+
+    .bubble-box.coral::before {
+        content: url('/img/decor/Vector24.webp');
+        top: 0%;
+        left: 70%;
+        transform: translateX(0%) translateY(-50%);
+    }
+
+    .speech-box-violet11::before {
+        content: url('/img/decor/Vector25.webp');
+        top: -40%;
+        left: 0%;
+        z-index: -1;
+    }
+
+    .speech-box-green::before {
+        bottom: 1em;
+        right: -8em;
+    }
+
+    /* убираю 5й ряд */
+    .grid-item.text.cell-final {
+        display: none;
+    }
+
+    .bubble-box.green {
+        display: none;
+    }
+
+    .speech-box-green {
+        display: none;
+    }
+
+    .grid-item.image img.deco-pic {
+        display: none;
+    }
+
+    .grid-item.image.foto-final {
+        display: none;
+    }
+
+    .foto-section14 {
+        display: none;
+    }
+
+    .grid-item.image.decor-final {
+        display: none;
+    }
+
+    .deco-section15 {
+        display: none;
+    }
+
+    /* Позиционирую фото */
+    .foto1 {
+        transform: translate(0);
+    }
+
+    .item-5 {
+        flex-direction: column;
+        /* вертикальное выравнивание */
+    }
+
+    .foto2 {
+        transform: translate(0);
+    }
+
+    .item-7 {
+        flex-direction: column;
+        /* вертикальное выравнивание */
+    }
+
+    .foto3 {
+        transform: translate(0);
+    }
+
+    .item-12 {
+        flex-direction: column;
+        overflow: hidden;
+  position: relative;
+    }
+
+    .foto-section12 {
+        position: relative; /* вместо absolute, если нужно */
+        max-height: none;
+        width: 100%;
+        transform: scale(1.1) translateY(-1em);
+        z-index: -1;
+      }
+
+    /* позиционирую псевдоэлементы у фото */
+    .img-wrapper:has(.foto2)::after {
+        display: block;
+    }
+    .foto-section12-wrapper {
+        position: relative;
+      }
+    .img-wrapper:has(.foto-section12)::before {
+        position: absolute;
+        content: url('/img/decor/Group29.webp');
+        top: 0%;
+        left: 0%;
+        z-index: -3;
+        transform: scale(1) translateY(-90%);
+    }
+
+}

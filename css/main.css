@@ -1,0 +1,504 @@
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    /* gap удалён */
+    background: none;
+}
+
+/* Сами ячейки — без тени и фона, с временной линией */
+.grid-item {
+    background: none;
+    box-shadow: none;
+    /* border: 1px solid #e0e0e0; */
+    /* ↓↓↓↓ временная метка */
+    /* ВРЕМЕННО: разграничительная линия для удобства */
+}
+
+.grid-layout {
+    grid-template-areas:
+        "item2 item3 item3"
+        "item4 item5 item6"
+        "item7 item8 item9"
+        "item10 item11 item12"
+        "item13 item14 item15";
+}
+
+.item-2 {
+    grid-area: item2;
+}
+
+.item-3 {
+    grid-area: item3;
+}
+
+.item-4 {
+    grid-area: item4;
+}
+
+.item-5 {
+    grid-area: item5;
+}
+
+.item-6 {
+    grid-area: item6;
+}
+
+.item-7 {
+    grid-area: item7;
+}
+
+.item-8 {
+    grid-area: item8;
+}
+
+.item-9 {
+    grid-area: item9;
+}
+
+.item-10 {
+    grid-area: item10;
+}
+
+.item-11 {
+    grid-area: item11;
+}
+
+.item-12 {
+    grid-area: item12;
+}
+
+.item-13 {
+    grid-area: item13;
+}
+
+.item-14 {
+    grid-area: item14;
+}
+
+.item-15 {
+    grid-area: item15;
+}
+
+/* Растянуть на 2 колонки */
+.grid-item.wide {
+    grid-column: span 2;
+}
+
+/* Растянуть на 2 строки */
+.grid-item.tall {
+    grid-row: span 2;
+}
+
+
+
+/* ============================================= */
+/* Визуальный элемент, например фото */
+.grid-item.image {
+    position: relative;
+    /* контекст для абсолютного позиционирования */
+}
+
+.spacer-mobile-only {
+    display: none;
+  }
+
+.grid-item.image img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-width: 100%;
+    display: block;
+}
+
+/* Текстовые блоки */
+.grid-item.text {
+    font-family: var(--font-main);
+    font-size: 1em;
+}
+
+/* Изображение */
+
+.grid-item.image {
+    padding: 0;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Псевдоэлемент для изображения 1 */
+img.foto-main {
+    position: relative;
+    display: block;
+    /* обязательно */
+}
+
+.img-wrapper.foto-main {
+    position: relative;
+}
+
+/* Псевдоэлемент для изображения 1 */
+
+.foto1 {
+    transform: translate(5em, -4em);
+}
+
+.img-wrapper.foto-main::after {
+    content: url('/img/decor/Group24.webp');
+    position: absolute;
+    bottom: -12%;
+    right: 15%;
+    z-index: 2;
+}
+
+
+/* ячейка 2,3 цитата */
+.speech-box {
+    background-color: var(--color-1);
+    border-radius: var(--radius);
+    padding: 4%;
+    transform: skew(-2deg, 2deg);
+    /* Наклон и по X, и по Y */
+}
+
+.speech-columns {
+    transform: skew(2deg, -2deg);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
+    font-size: 1em;
+    line-height: 1.5;
+    color: var(--general-text);
+}
+
+.speech-columns p {
+    margin: 0;
+}
+
+/* Стрелка — слева сверху */
+.speech-box::before {
+    content: url('/img/decor/Vector\ 15.webp');
+    position: absolute;
+    top: 0em;
+    left: -8em;
+}
+
+.speech-box::after {
+    content: url('/img/decor/star1.webp');
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    transform: skew(2deg, 2deg);
+}
+
+
+/* Ряд 2 */
+/* ячейка слева */
+.speech-box-violet {
+    background-color: var(--color-2);
+    /* светло-фиолетовый */
+    border-radius: var(--radius);
+    padding: 10% 4%;
+    transform: skew(2deg, -2deg) translate(1em, 1em);
+    color: var(--accent-text);
+    margin-bottom: -4em;
+}
+
+.speech-box-violet p {
+    max-width: 28em;
+    width: 100%;
+    transform: skew(-2deg, 2deg);
+    /* выравниваем текст */
+}
+
+.speech-box-violet .date {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: -0.6em;
+    font-weight: bold;
+}
+
+
+/* ячейка посередине Фото */
+.foto2 {
+    position: relative;
+    transform: translate(-1em, 0em);
+}
+
+.img-wrapper {
+    position: relative;
+}
+
+.img-wrapper:has(.foto2)::after {
+    display: none;
+    content: url('/img/decor/Vector26.webp');
+    /* замени на нужное изображение */
+    position: absolute;
+    top:-10%;
+    left: 10%;
+    z-index: 1;
+}
+
+/* ячейка справа текст */
+
+.bubble-box.gelb {
+    position: relative;
+    margin-top: 2em;
+    margin-left: 2em;
+    background-color: var(--color-3);
+    color: var(--general-text);
+    border-radius: var(--radius);
+    padding: 6%;
+    transform: skew(2deg, -2deg) translate(-2em, 2em);
+}
+
+/* Текст выпрямляем */
+.bubble-box.gelb p {
+    transform: skew(-2deg, 2deg);
+    width: 100%;
+    max-width: 100%;
+    margin: 1em 0 1.5em 0;
+}
+
+.bubble-box.gelb.date {
+    font-weight: bold;
+}
+
+/* Псевдоэлемент-речевая стрелка */
+.bubble-box.gelb::before {
+    content: url('/img/decor/Vector16.webp');
+    position: absolute;
+    left: -8em;
+    /* отступ от левого края */
+    bottom: 4em;
+    /* отступ от нижнего края */
+}
+
+
+/* третий ряд */
+.foto3 {
+    transform: translate(0em, 3.5em);
+}
+
+.bubble-box.coral {
+    background-color: var(--color-4);
+    color: var(--general-text);
+    border-radius: var(--radius);
+    padding: 6% 6%;
+    transform: skew(-2deg, 2deg) translate(-4em, -0.5em);
+    ;
+    position: relative;
+    font-family: var(--font-main);
+    font-size: var(--text-size);
+    margin: 0 -1em 0em 0;
+}
+
+/* Выравнивание текста */
+.bubble-box.coral p {
+    max-width: 28em;
+    width: 100%;
+    transform: skew(2deg, -2deg);
+    line-height: 1.2;
+    margin-bottom: 1.5em;
+}
+
+.bubble-box.coral .date {
+    font-weight: bold;
+    padding-left: 0.5em;
+    /* или margin-left */
+}
+
+/* Псевдоэлемент — стрелка сверху справа */
+.bubble-box.coral::before {
+    content: url('/img/decor/Vector17.webp');
+    /* твоя SVG-стрелка */
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translateX(-40%) translateY(10%);
+}
+
+/* третья ячейка в третьем ряду */
+.bubble-box.green {
+    background-color: var(--color-5);
+    color: var(--accent-text);
+    border-radius: var(--radius);
+    padding: 6% 6% 10% 6%;
+    transform: skew(2deg, -2deg) translate(-3em, -1em);
+    /* ← добавили сдвиг */
+    position: relative;
+    font-family: var(--font-main);
+    font-size: var(--text-size);
+}
+
+/* Выравниваем текст */
+.bubble-box.green p {
+    transform: skew(-2deg, 2deg);
+    padding: 5%;
+}
+
+.bubble-box.green .date {
+    font-weight: bold;
+}
+
+/* Псевдоэлемент — стрелка (пузырь справа) */
+.bubble-box.green::before {
+    content: url('/img/decor/Vector18.webp');
+    position: absolute;
+    top: 4em;
+    right: -5em;
+
+}
+
+.bubble-box.green::after {
+    content: url('/img/decor/Group25.webp');
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+
+}
+
+
+/* четвертый ряд */
+/* Уникальный класс для 4-й картинки секция 10 */
+.decor-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.grid-item.image img.deco-pic {
+    max-width: 20em;
+    max-height: 20em;
+    transform: translate(0em, 0em);
+}
+
+/* секция 11, посередине */
+
+/* Грид-ячейка с позицией для позиционирования */
+.grid-item.pos-relative {
+    position: relative;
+    overflow: visible;
+}
+
+/* Сам прямоугольник */
+.speech-box-violet11 {
+    position: relative;
+    max-width: 40em;
+    background-color: var(--color-2);
+    border-radius: var(--radius);
+    padding: 10% 8%;
+    color: var(--accent-text);
+    transform: skew(0deg, 0deg) translate(-3em, 2em);
+}
+
+/* Контент без skew */
+.speech-box-violet11 p {
+    margin: 0 0 1em 0;
+    max-width: 28em;
+    width: 100%;
+}
+
+.speech-box-violet11 .date {
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+/* Стрелка */
+.speech-box-violet11::before {
+    content: url('/img/decor/Vector19.webp');
+    position: absolute;
+    top: 6em;
+    /* отступ от верхнего края */
+    right: -8em;
+    /* отступ от правого края */
+}
+
+/* секция 12 */
+.foto-section12 {
+    position: absolute;
+    width: auto;
+    max-height: 39em;
+    /* макс-высота, по которой считается высота ячейки */
+    height: auto;
+    transform: scale(1.1), translate(-0.5em, -7em);
+    z-index: -1;
+}
+
+/* пятый ряд */
+/* Секция 13 речевой блок*/
+
+.grid-item.text.cell-final {
+    position: relative;
+    overflow: visible;
+}
+
+.speech-box-green {
+    position: relative;
+    width: 100%;
+    max-width: 45em;
+    background-color: var(--color-6);
+    color: var(--accent-text);
+    border-radius: var(--radius);
+    padding: 10% 5%;
+    z-index: 2;
+    transform: skew(-2deg, 2deg);
+    bottom: -14%;
+    right: -2%;
+}
+
+.speech-box-green p {
+    transform: skew(2deg, -2deg);
+    max-width: 30em;
+}
+
+.speech-box-green .date {
+    font-weight: bold;
+    margin-bottom: 4em;
+}
+
+/* Стрелка */
+.speech-box-green::before {
+    content: url('/img/decor/Vector20.webp');
+    position: absolute;
+    bottom: 1em;
+    /* от низа контейнера */
+    right: -8em;
+    /* от правого края */
+}
+
+/* Ячейка 14 */
+.grid-item.image.foto-final {
+    position: relative;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.foto-section14 {
+    position: absolute;
+    bottom: 0em;
+    /* сдвиг вверх от нижнего края */
+    right: 1em;
+    /* сдвиг влево от правого края */
+    /* по желанию, если нужна трансформация размера */
+    z-index: 1;
+}
+
+
+/* ячейка 15 */
+.grid-item.image.decor-final {
+    position: relative;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deco-section15 {
+    transform: rotate(0deg) translate(0em, 7em);
+}
